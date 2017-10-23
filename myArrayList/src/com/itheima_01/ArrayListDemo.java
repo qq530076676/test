@@ -3,48 +3,49 @@ package com.itheima_01;
 import java.util.ArrayList;
 
 /*
- * ÎªÊ²Ã´»á³öÏÖ¼¯ºÏÀà£º
- * 		ÎÒÃÇÑ§Ï°µÄÊÇÃæÏò¶ÔÏó±à³ÌÓïÑÔ£¬¶øÃæÏò¶ÔÏó±à³ÌÓïÑÔ¶ÔÊÂÎïµÄÃèÊö¶¼ÊÇÍ¨¹ý¶ÔÏóÀ´ÌåÏÖµÄ¡£
- * 		ÎªÁË·½±ã¶Ô¶à¸ö¶ÔÏó½øÐÐ²Ù×÷£¬ÎÒÃÇ¾Í±ØÐë¶ÔÕâ¶à¸ö¶ÔÏó½øÐÐ´æ´¢£¬¶øÒªÏë¶Ô¶à¸ö¶ÔÏó½øÐÐ´æ´¢£¬
- * 		¾Í²»ÄÜÊÇÒ»¸ö»ù±¾µÄ±äÁ¿£¬¶øÓ¦¸ÃÊÇÒ»¸öÈÝÆ÷ÀàÐÍµÄ±äÁ¿¡£
- * 		µ½Ä¿Ç°ÎªÖ¹£¬ÎÒÃÇÑ§Ï°¹ýÁËÄÄÐ©ÈÝÆ÷ÀàÐÍµÄÊý¾ÝÄØ£¿StringBuilder,Êý×é¡£
- * 		StringBuilderµÄ½á¹ûÖ»ÄÜÊÇÒ»¸ö×Ö·û´®ÀàÐÍ£¬²»Ò»¶¨Âú×ãÎÒÃÇµÄÐèÇó¡£
- * 		ËùÒÔ£¬ÎÒÃÇÄ¿Ç°Ö»ÄÜÑ¡ÔñÊý×éÁË£¬Ò²¾ÍÊÇÎÒÃÇÇ°ÃæÑ§Ï°¹ýµÄ¶ÔÏóÊý×é¡£
- * 		µ«ÊÇ£¬Êý×éµÄ³¤¶ÈÊÇ¹Ì¶¨µÄ£¬ÊÊÓ¦²»ÁË±ä»¯µÄÐèÇó£¬ÄÇÃ´£¬ÎÒÃÇ¸ÃÈçºÎÑ¡ÔñÄØ?
- * 		Õâ¸öÊ±ºò£¬java¾ÍÌá¹©ÁË¼¯ºÏÀà¹©ÎÒÃÇÊ¹ÓÃ¡£
+ * ÎªÊ²Ã´ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½à£º
+ * 		ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÄ¡ï¿½
+ * 		Îªï¿½Ë·ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾Í±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´æ´¢ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´æ´¢ï¿½ï¿½
+ * 		ï¿½Í²ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÍµÄ±ï¿½ï¿½ï¿½ï¿½ï¿½
+ * 		ï¿½ï¿½Ä¿Ç°ÎªÖ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½StringBuilder,ï¿½ï¿½ï¿½é¡£
+ * 		StringBuilderï¿½Ä½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½
+ * 		ï¿½ï¿½ï¿½Ô£ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Ç°Ö»ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½Ñ§Ï°ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¡£
+ * 		ï¿½ï¿½ï¿½Ç£ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½Ç¹Ì¶ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½Ë±ä»¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½?
+ * 		ï¿½ï¿½ï¿½Ê±ï¿½ï¿½javaï¿½ï¿½ï¿½á¹©ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½à¹©ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½Ã¡ï¿½
  * 
- * ¼¯ºÏÀàµÄÌØµã£º
- * 		³¤¶È¿É±ä¡£
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Øµã£º
+ * 		ï¿½ï¿½ï¿½È¿É±ä¡£
  * 
  * ArrayList<E>:
- * 		´óÐ¡¿É±äÊý×éµÄÊµÏÖ
+ * 		ï¿½ï¿½Ð¡ï¿½É±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
  * 
- * 		<E>:ÊÇÒ»ÖÖÌØÊâµÄÊý¾ÝÀàÐÍ£¬·ºÐÍ¡£
- * 		ÔõÃ´ÓÃÄØ?
- * 			ÔÚ³öÏÖEµÄµØ·½ÎÒÃÇÊ¹ÓÃÒýÓÃÊý¾ÝÀàÐÍÌæ»»¼´¿É
- * 			¾ÙÀý£ºArrayList<String>,ArrayList<Student>
+ * 		<E>:ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½ï¿½ï¿½Í¡ï¿½
+ * 		ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½?
+ * 			ï¿½Ú³ï¿½ï¿½ï¿½Eï¿½ÄµØ·ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ»»ï¿½ï¿½ï¿½ï¿½
+ * 			ï¿½ï¿½ï¿½ï¿½ArrayList<String>,ArrayList<Student>
  * 
- * ¹¹Ôì·½·¨£º
+ * ï¿½ï¿½ï¿½ì·½ï¿½ï¿½ï¿½ï¿½
  * 		ArrayList()
  * 
- * Ìí¼ÓÔªËØ£º
- * 		public boolean add(E e):Ìí¼ÓÔªËØ
- * 		public void add(int index,E element):ÔÚÖ¸¶¨µÄË÷Òý´¦Ìí¼ÓÒ»¸öÔªËØ
+ * ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½
+ * 		public boolean add(E e):ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+ * 		public void add(int index,E element):ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½
  */
 public class ArrayListDemo {
 	public static void main(String[] args) {
-		//´´½¨¼¯ºÏ¶ÔÏó
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¶ï¿½ï¿½ï¿½
 		ArrayList<String> array = new  ArrayList<String>();
 		
-		//add(E e):Ìí¼ÓÔªËØ
+		//add(E e):ï¿½ï¿½ï¿½Ôªï¿½ï¿½
 		array.add("hello");
 		array.add("world");
 		array.add("java");
 		
-		//add(int index,E element):ÔÚÖ¸¶¨µÄË÷Òý´¦Ìí¼ÓÒ»¸öÔªËØ
+		//add(int index,E element):ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½
 		//array.add(1, "android");
 		
 		
 		System.out.println("array:"+array);
+		System.out.println("garen add something");
 	}
 }
