@@ -47,5 +47,6 @@ public class ArrayListDemo {
 		
 		System.out.println("array:"+array);
 		System.out.println("garen add something");
+		System.out.println("garen add anotherthing");
 	}
 }
